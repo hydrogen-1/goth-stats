@@ -1,0 +1,21 @@
+services:
+  web:
+    image: hydrojohnny/goth-stats:latest
+    depends_on:
+      - db
+    ports:
+      - '8090:8000'
+    restart: always
+    environment:
+      - DB_URL=db
+
+  db:
+    image: postgres:15
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=gothstats
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: always
+volumes:
+  postgres_data:

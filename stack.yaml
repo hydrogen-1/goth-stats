@@ -1,0 +1,36 @@
+services:
+  web:
+    image: hydrojohnny/goth-stats:latest
+    depends_on:
+      - db
+    ports:
+      - '8090:8000'
+    secrets:
+      - goth-stats-db
+    environment:
+      - DB_HOST=db
+      - DB_USER=postgres
+      - DB_PASSWORD_FILE=/run/secrets/goth-stats-db
+    networks:
+      - default
+      - shared
+
+  db:
+    image: postgres:15
+    secrets:
+      - goth-stats-db
+    environment:
+      - POSTGRES_PASSWORD_FILE=/run/secrets/goth-stats-db
+      - POSTGRES_DB=gothstats
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+volumes:
+  postgres_data:
+
+secrets:
+  goth-stats-db:
+    external: true
+
+networks:
+  shared:
+    external: true

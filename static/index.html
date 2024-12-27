@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1.0, initial-scale=1.0">
+    <title>GOTH Stats</title>
+    <script src="htmx.min.js"></script>
+    <link rel="stylesheet" href="styles.min.css">
+</head>
+
+<body class="bg-slate-800 flex flex-col h-screen">
+    <nav class="text-4xl text-white p-4 lg:w-[50%] lg:self-center">
+        <p>⚰️ Stats</p>
+    </nav>
+    <div id="content" class="flex lg:w-[50%] lg:self-center" hx-post="visit" hx-trigger="load" hx-swap="innerHTML">
+    </div>
+    <footer class="flex w-full absolute bottom-0 justify-center p-4">
+        <p class="text-white">Made with ❤️ with <a href="https://github.com/hydrogen-1/goth-stats" target="_blank" class="text-cyan-200">GOTH</a></p>
+    </footer>
+</body>
+
+</html>
