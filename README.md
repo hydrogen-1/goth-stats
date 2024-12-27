@@ -1,6 +1,7 @@
 # The GOTH stack
 A simple stack with little dependencies
 
+For a live version of this app you can go [here](https://goth-stats.click)
 # Design Choices
 This stack is an adaption of [GOTTH](https://github.com/TomDoesTech/GOTTH) with less dependencies. Here's a breakdown of each and why I used it
 ## net/http
